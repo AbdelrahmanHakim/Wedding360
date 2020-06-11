@@ -5,7 +5,6 @@ import {Link} from 'react-router-dom'
 const Wrapper = styled.div `
 width: 65%;
 margin-left: 18%;
-padding-bottom:8%;
 
 @media (max-width: 768px) {
 margin-left: 8%;

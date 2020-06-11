@@ -4,6 +4,7 @@ import PageTitle from '../components/PageTitle'
 import PhotoSearch from '../components/PhotoSearch'
 import Testmonials from '../components/Testmonials'
 import Footer from '../components/Footer'
+import Photos from '../components/Photos'
 
  const WeddingIdeas = () => {
     return (
@@ -11,6 +12,7 @@ import Footer from '../components/Footer'
             <Burger />
             <PageTitle/>
             <PhotoSearch />
+            <Photos/>
             <Testmonials />
             <Footer />
         </section>

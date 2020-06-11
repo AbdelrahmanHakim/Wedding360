@@ -1,6 +1,6 @@
 import React from 'react'
 
- const Categories = () => {
+ const Pagination = () => {
     return (
         <div>
             
@@ -8,4 +8,4 @@ import React from 'react'
     )
 }
 
-export default Categories;
+export default Pagination;

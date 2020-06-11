@@ -41,7 +41,7 @@ float:none;
            </Link> 
 
            <Title>
-           > WEDDING IDEAS
+           > 
            </Title>
         </Wrapper>
     )

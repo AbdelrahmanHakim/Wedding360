@@ -169,9 +169,9 @@ z-index:1;
                 </SpecialAnchor>
                </List>
               <List>
-              <Anchor href="#" onMouseOver={()=>setOpen(!open)} >
+              <Link to="/" style={{textDecoration: "none", color:"black", fontWeight: "bold"}} onMouseOver={()=>setOpen(!open)} >
                 Gallery
-              </Anchor> 
+              </Link> 
               {open && DropDownItem}
                </List>
                <List>
