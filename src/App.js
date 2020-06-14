@@ -1,8 +1,9 @@
 import React from 'react';
 import Gallery from './pages/Gallery'
 import Categories from './pages/Categories'
-import {BrowserRouter as Router,Switch, Route} from 'react-router-dom'
+import Category from './pages/Category'
 import SinglePhoto from './pages/SinglePhoto';
+import {BrowserRouter as Router,Switch, Route} from 'react-router-dom'
 function App() {
 
   return (
@@ -11,13 +12,16 @@ function App() {
     <Route exact path="/">
       <Gallery />
     </Route>
-    <Route  path="/categories">
+    <Route exact path="/categories">
       <Categories />
     </Route>
     <Route
           path="/photos/:id"
           children={<SinglePhoto />}
-        ></Route>
+        />
+     <Route
+           path="/categories/:id"
+       component={Category} />
 
     </Switch>
    </Router>

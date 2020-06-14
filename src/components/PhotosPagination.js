@@ -2,45 +2,38 @@ import React from 'react'
 import styled from 'styled-components'
 
 
-const Nav = styled.nav `
-
-margin-left: 50%;
+const Nav = styled.div `
+width:10%;
+height:50%;
 margin-bottom:5%;
+text-align:center;
+margin-left:45%;
 @media (max-width: 768px) {
-    padding-bottom: 15%;
-    width: 100%;
-    margin-left: -10%;
+    margin-left:30%;
   }
 `
 const UnorderedList = styled.ul `
 list-style:none;
-@media (max-width: 768px) {
-    display: ${({toggleNav}) => toggleNav ? 'grid' : 'none'};
-    text-align: center;
-    padding-right: 1%;
-    width:350px;
-    flex-flow: column nowrap;
-    padding-top:25%;
-    grid-template-columns: auto auto ;
-  }
+display:flex;
+justify-content: space-between;
+margin-left:0%;
+align-content:center;
+width:55%;
+
 `
-
-
 const List = styled.li `
 display:inline;
-padding-left:5%;
 font-style: arial;
 cursor:pointer;
 font-size: 13.4px;
+border-style: solid;
+border-width: 1px;
+border-color:  #ddd;
+padding:10px;
+ &:hover{
+     background-color:#ddd;
+ }
 
-@media (max-width: 768px) {
-padding-top: 15px;
-margin-left: 0%;
-background-color: black;
-border: 1px solid rgba(255,255,255, 0.3);
-text-align: center;
-padding: 20px;
-  }
 `
 
 const Anchor = styled.a `
@@ -49,10 +42,6 @@ color: #008174;
 font-size:13.4px;
 font-weight:bold;
 font-style: arial;
-@media (max-width: 768px) {
-text-align:left;
-color:white;
-font-size: 13.4px;
 
 }
 `

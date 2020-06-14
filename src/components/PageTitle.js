@@ -12,37 +12,28 @@ margin-left: 2%;
 padding-bottom:5%;
 float:left;
 width: 100%;
+&:hover{
+        color: #013825;
+    }
   }
 `
-const Title = styled.h3 `
-font-weight:bold;
-font-family: arial;
-padding-left:1%;
-margin-top:0%;
-float:left;
-@media (max-width: 768px) {
-width:100%;
-margin-left: 0%;
-float:none;
 
-  }
-`
+
+ const Title = styled(Link) `
+           color: #008174;
+            text-decoration:none;
+            font-size:1.2rem;
+            font-weight:bold;
+            font-family: arial;
+            float: left;
+ `
  const PageTitle = () => {
     return (
         <Wrapper>
-           <Link to="/categories" 
-           style={{color: "#008174",
-            textDecoration:"none", 
-            fontSize:"1.2rem",
-            fontWeight:"bold",
-            fontFamily: "arial",
-            float: "left"}}>
+           <Title to="/">
                GALLERY
-           </Link> 
+           </Title> 
 
-           <Title>
-           > 
-           </Title>
         </Wrapper>
     )
 }

@@ -1,48 +1,37 @@
-import React,{useState} from 'react'
+import React,{useState, useEffect} from 'react'
 import styled from 'styled-components'
 import {Link} from 'react-router-dom'
 import LogoImg from '../../images/logo.JPG'
+import {useWindowScroll} from 'react-use'
 
 
 const Nav = styled.nav `
-width: 65%;
-margin-left: 16%;
-margin-bottom:5%;
+display:flex;
+position:fixed;
+align-items:center;
+
+height:50px;
+width:100%;
+top: 0;
+background-color:white;
 @media (max-width: 768px) {
-    padding-bottom: 15%;
-    width: 100%;
-    margin-left: -10%;
+  display:none;
   }
 `
+
 const UnorderedList = styled.ul `
 list-style:none;
-@media (max-width: 768px) {
-    display: ${({toggleNav}) => toggleNav ? 'grid' : 'none'};
-    text-align: center;
-    padding-right: 1%;
-    width:350px;
-    flex-flow: column nowrap;
-    padding-top:25%;
-    grid-template-columns: auto auto ;
-  }
+width:900px;
 `
 
 
 const List = styled.li `
 display:inline;
-padding-left:5%;
+padding-left:2%;
 font-style: arial;
 cursor:pointer;
 font-size: 13.4px;
-
-@media (max-width: 768px) {
-padding-top: 15px;
-margin-left: 0%;
-background-color: black;
-border: 1px solid rgba(255,255,255, 0.3);
-text-align: center;
-padding: 20px;
-  }
+ }
 `
 
 const Anchor = styled.a `
@@ -51,62 +40,27 @@ color:black;
 font-size:13.4px;
 font-weight:bold;
 font-style: arial;
-@media (max-width: 768px) {
-text-align:left;
-color:white;
-font-size: 13.4px;
-
+margin-left:2%;
 }
 `
-const SpecialAnchor = styled.a `
-text-decoration:none;
-color:black;
-font-size:13.4px;
-font-weight:bold;
-font-style: arial;
-padding-left:15%;
-@media (max-width: 768px) {
-  text-align:left;
-  color:white;
-  padding-left:0%;
-  font-size: 13.4px;
 
-  }
-`
 const Logo = styled.img `
-width:8%;
-height:12%;
-padding-left:33%;
-margin-top:-1%;
-position:absolute;
-@media (max-width: 768px) {
-width:20%;
-height:8%;
-position:absolute;
-padding-top:2%;
-padding-left: 190px;
-float:left;
+height:2.5rem;
+
   }
 `
 
 
-const HorizontalLine = styled.hr `
-border: 0.5px solid black;
-@media (max-width: 768px) {
-display:none;
-  }
-`
+
 
 const DropdownLink = styled.div `
-
 background-color: white;
-margin-right: 15%;
+margin-left: 29%;
+z-index:-1;
 position:absolute;
-left:66%;
-z-index:1;
 display: grid;
 text-align:center;
-
+float:right;
 padding-top: 3%;
 padding-bottom:2%;
 font-weight:bold;
@@ -119,8 +73,7 @@ const StyledLink = styled(Link)`
    font-size:13.4px;
 font-weight:bold;
 font-style: arial;
-   @media (max-width: 768px) {
-    color:white;
+
   }
 `
 const DropDownLink = styled(Link) `
@@ -135,12 +88,28 @@ width:90px;
 z-index:1;
 `
 
- const Navbar = ({toggleNav}) => {
+ const Sidebar = () => {
+
     const [open, setOpen] = useState(false)
+    const {y:pageYOffset} = useWindowScroll()
+    const [visible, setVisibility] = useState(false)
+
+    useEffect(() => {
+        if(pageYOffset >30){
+            setVisibility(true)
+        }else{
+            setVisibility(false)
+        }
+       
+    }, [pageYOffset])
+
+    if(!visible){
+        return false
+    }
 
     const DropDownItem = <DropdownLink>
     <div>
-     <DropDownLink to="/categories/1" >Wedding Ideas</DropDownLink>
+     <DropDownLink to="/" >Wedding Ideas</DropDownLink>
     </div>
       <DropdownHR></DropdownHR>
       <div>
@@ -151,15 +120,14 @@ z-index:1;
         <>
 
         <Nav  >
-        <Logo src={LogoImg} alt="logo"/>
+        <Anchor to="/">
+              <Logo src={LogoImg} alt="logo"/>
 
+                 </Anchor> 
 
-         <UnorderedList toggleNav={toggleNav}>
-      
+         <UnorderedList >
+
          
-
-           <HorizontalLine />
-
                <List>
                <Anchor href="#">
                  360 PLANNER
@@ -182,13 +150,13 @@ z-index:1;
                </List>
                
                <List>
-               <SpecialAnchor href="#">
+               <Anchor href="#">
                    VENDORS
-                </SpecialAnchor>
+                </Anchor>
                </List>
               <List>
               <StyledLink to="/"  onMouseOver={()=>setOpen(!open)} >
-                Gallery
+               GALLERY
               </StyledLink> 
               {open && DropDownItem}
                </List>
@@ -197,7 +165,6 @@ z-index:1;
                 IDEAS & MORE
                 </Anchor>
                 </List>
-               <HorizontalLine></HorizontalLine>
            </UnorderedList> 
            
         </Nav>
@@ -205,4 +172,4 @@ z-index:1;
     )
 }
 
-export default Navbar;
+export default Sidebar;

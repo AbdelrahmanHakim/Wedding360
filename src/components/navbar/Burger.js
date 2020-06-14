@@ -1,6 +1,7 @@
 import React,{useState} from 'react'
 import styled from 'styled-components'
 import Navbar from './Navbar'
+import Sidebar from './Sidebar'
 
 const StyledBurger = styled.div `
 display:none;
@@ -9,7 +10,7 @@ width: 1rem;
 height: 2rem;
 position: absolute;
 top:15px;
-right:20px;
+right:50px;
 display:flex;
 justify-content: space-around;
 flex-flow: column nowrap;
@@ -33,6 +34,7 @@ flex-flow: column nowrap;
         <div />
     </StyledBurger>
     <Navbar toggleNav={toggleNav}/>
+    <Sidebar />
     </>
     )
 }
