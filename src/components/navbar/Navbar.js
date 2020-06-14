@@ -151,8 +151,9 @@ z-index:1;
         <>
 
         <Nav  >
-        <Logo src={LogoImg} alt="logo"/>
-
+        <Link to="/">
+          <Logo src={LogoImg} alt="logo"/>
+        </Link>
 
          <UnorderedList toggleNav={toggleNav}>
       

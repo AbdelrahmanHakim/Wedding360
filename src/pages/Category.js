@@ -7,6 +7,7 @@ import {Link, useParams} from 'react-router-dom'
 import styled from 'styled-components'
 import ScrollTop from '../components/ScrollTop'
 import {TiChevronRight} from 'react-icons/ti'
+
 const Wrapper = styled.div `
 width:45%;
 margin-left: 38%;
@@ -24,7 +25,7 @@ const BreadCrump = styled.div `
 width: 65%;
 margin-left: 18%;
 padding-bottom:3%;
-
+display:flex;
 @media (max-width: 768px) {
 margin-left: 2%;
 padding-bottom:5%;
@@ -37,7 +38,6 @@ const PageTitle = styled(Link) `
     font-size:1.2rem;
     font-weight:bold;
     font-family: arial;
-    float: left;
     &:hover{
         color: #013825;
     }
@@ -47,7 +47,9 @@ const PageTitle = styled(Link) `
     font-size:1.2rem;
     font-weight:bold;
     font-family: arial;
+    margin-top:0px;
  `
+ 
 const ImgContainer = styled.div `
 margin-top:-6%;
 width:25%;
@@ -64,17 +66,21 @@ const PhotoTitle = styled.h4 `
 grid-column-start: 1;
 grid-column-end: 3;
 `
-const NameWrapper = styled.div`
+const NameWrapper = styled.div `
 width:200px;
 padding-bottom: 20px;
 `
+
 const Category = () => {
       const [photos,setPhotos] =useState([])
-      const [newPhotos, setNewPhotos]  = useState(null)
+      const [newPhotos, setNewPhotos]  = useState([])
+      const [categName, setCategName]  = useState("")
+
       const {id} = useParams()
   
      useEffect( () => {
         axios.get('http://localhost:3002/photos')
+
         .then(res => {
            
            setPhotos(res.data)
@@ -86,7 +92,10 @@ const Category = () => {
            return photo.category_id === id
        })
        setNewPhotos(newPhotos)
-       console.log(newPhotos)
+           const newArr =  Object.keys(newPhotos).map((key,i)=> {
+           return newPhotos[key].category
+       })
+       setCategName(newArr[0])
      }, [photos])
 
     return (
@@ -96,9 +105,9 @@ const Category = () => {
             <BreadCrump>
               <PageTitle to="/">GALLERY</PageTitle>
               <TiChevronRight size={"1.5rem"}/>
-              <CurrentPage>
-            
-              </CurrentPage>
+                { <CurrentPage>
+             {categName !== "" ? categName : "loading"} 
+                </CurrentPage> }
             </BreadCrump>
          
             <Wrapper>

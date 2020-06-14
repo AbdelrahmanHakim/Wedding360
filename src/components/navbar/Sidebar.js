@@ -55,7 +55,7 @@ height:2.5rem;
 
 const DropdownLink = styled.div `
 background-color: white;
-margin-left: 29%;
+margin-left: 32%;
 z-index:-1;
 position:absolute;
 display: grid;

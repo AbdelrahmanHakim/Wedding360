@@ -96,8 +96,6 @@ border: 1px solid;
         })
 
         setFilteredPhotos(filteredPhotos)
-        console.log('clicked')
-        console.log(filteredPhotos)
      }
      
      const clear = ()=> {
@@ -110,8 +108,9 @@ border: 1px solid;
         .then(res => {
 
            setPhotos(res.data)
+          
         })
-
+       
      },[])
 
      

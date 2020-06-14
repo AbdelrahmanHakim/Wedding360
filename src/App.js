@@ -19,9 +19,9 @@ function App() {
           path="/photos/:id"
           children={<SinglePhoto />}
         />
-     <Route
-           path="/categories/:id"
-       component={Category} />
+     <Route path="/categories/:id">
+             <Category />
+     </Route>
 
     </Switch>
    </Router>
