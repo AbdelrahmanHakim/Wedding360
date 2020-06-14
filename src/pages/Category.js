@@ -31,6 +31,7 @@ margin-left: 2%;
 padding-bottom:5%;
 float:left;
 width: 100%;
+}
 `
 const PageTitle = styled(Link) `
     color: #008174;

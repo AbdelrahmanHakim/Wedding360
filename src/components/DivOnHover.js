@@ -18,14 +18,14 @@ width:300px;
 const DivTop = styled.div `
 position:absolute;
 margin-top: -14%;
-z-index:-1;
+z-index:15;
 width:250px;
 height:150px;
 margin-left: 2%;
 background-color:white;
 cusror:pointer;
 &:hover{
-z-index:9999;
+z-index:-1000;
 
 }
 @media (max-width: 768px) {
@@ -48,7 +48,8 @@ height:250px;
 position:relative;
 z-index:1;
 &:hover{
-z-index:-5;
+z-index:15;
+}
 `
 const LinkStyle = styled(Link) `
 text-decoration:none;
