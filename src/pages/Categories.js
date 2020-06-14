@@ -7,6 +7,7 @@ import {IoIosArrowDown} from 'react-icons/io'
 import {Link} from 'react-router-dom'
 import  FadeIn from 'react-fade-in';
 import ScrollTop from '../components/ScrollTop'
+import DivOnHover from '../components/DivOnHover'
 const DropDownMenu = styled.div `
  margin-left:18%;
  border-style: solid;
@@ -23,9 +24,9 @@ const DropDownMenu = styled.div `
  }
 
  @media (max-width: 768px) {
- margin-left:18%;
+ margin-left:0%;
  border-style: solid;
- width: 200px;
+ width:380px;
  height: 30px;
  float:left;
  h2{
@@ -46,6 +47,7 @@ width:975px;
 margin-left:0%;
 background-color: black;
 width:275px;
+margin-top:15%;
   }
 `
  const DropUnOrdered = styled.ul `
@@ -91,6 +93,10 @@ padding:5px;
         font-size:1.5rem;
         font-weight:strong;
     }
+    @media (max-width: 768px) {
+    display:none;
+  }
+ 
  `
 
  const Categories = () => {
@@ -124,7 +130,7 @@ padding:5px;
               </DropDownMenu> 
               {open && DropDownItem}
               <ScrollTop />
-
+            <DivOnHover />
             <Testmonials />
             <Footer /> 
         </>
